@@ -28,7 +28,7 @@ while($f=  mysqli_fetch_assoc($qu)){
             <?php echo $f['city']?>
         </td>
         <td>
-        <a href="delete_city.php">EXCLUIR</a>
+        <a href="delete_city.php?idCity=5">EXCLUIR</a>
         </td>
     </tr>
     <?php
