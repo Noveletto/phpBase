@@ -2,7 +2,7 @@
 include 'connect.php';
 ?>
 <a href="reg_city.php">Adicionar Cidade</a>
-<table border='1'>
+<table border='1' align='center'>
     <tr>
         <th>
             ID Cidade
@@ -28,7 +28,7 @@ while($f=  mysqli_fetch_assoc($qu)){
             <?php echo $f['city']?>
         </td>
         <td>
-        <a href="delete_city.php?idCity=5">EXCLUIR</a>
+        <a href="delete_city.php?idCity=<?php echo $f['ID_city']?>">EXCLUIR</a>
         </td>
     </tr>
     <?php
