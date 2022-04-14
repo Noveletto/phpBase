@@ -6,12 +6,12 @@ $id = $_GET['idCity'];
 ?>
 <?php
  if(isset($_POST['sub'])){
-    $t=$_POST['text'];
+    $t=$_POST['city'];
     $i="update city set city='$t' where ID_city=$id";
     mysqli_query($con, $i);
     header('location:home.php');
  }
-     $s="select*from city where ID_city='$_SESSION[ID_city]'";
+     $s="select*from city where ID_city='$id'";
     $qu= mysqli_query($con, $s);
     $f=mysqli_fetch_assoc($qu);
     ?> 
@@ -20,7 +20,7 @@ $id = $_GET['idCity'];
                 <tr>
                     <td>
                         Name
-                        <input type="text" name="text" value="<?php echo $f['text']?>">
+                        <input type="text" name="city" value="<?php echo $f['city']?>">
                     </td>
                 </tr>
                 <tr>
