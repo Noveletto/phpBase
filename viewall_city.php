@@ -13,6 +13,9 @@ include 'connect.php';
         <th>
             Excluir
         </th>
+        <th>
+            Editar
+        </th>
     </tr>
 
 <?php
@@ -29,6 +32,9 @@ while($f=  mysqli_fetch_assoc($qu)){
         </td>
         <td>
         <a href="delete_city.php?idCity=<?php echo $f['ID_city']?>">EXCLUIR</a>
+        </td>
+        <td>
+        <a href="edit_city.php?idCity=<?php echo $f['ID_city']?>">EDITAR</a>
         </td>
     </tr>
     <?php
