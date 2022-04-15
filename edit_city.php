@@ -9,7 +9,7 @@ $id = $_GET['idCity'];
     $t=$_POST['city'];
     $i="update city set city='$t' where ID_city=$id";
     mysqli_query($con, $i);
-    header('location:home.php');
+    header('location:viewall_city.php');
  }
      $s="select*from city where ID_city='$id'";
     $qu= mysqli_query($con, $s);
