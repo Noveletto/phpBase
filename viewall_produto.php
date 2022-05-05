@@ -11,6 +11,9 @@ include 'connect.php';
             Nome Produto
         </th>
         <th>
+            Preço Produto
+        </th>
+        <th>
             Excluir
         </th>
         <th>
@@ -29,6 +32,9 @@ while($f=  mysqli_fetch_assoc($qu)){
         </td>
         <td>
             <?php echo $f['nomeProduto']?>
+        </td>
+        <td>
+            <?php echo $f['precoProduto']?>
         </td>
         <td>
         <a href="delete_produto.php?ProdutoID=<?php echo $f['idProduto']?>">EXCLUIR</a>
