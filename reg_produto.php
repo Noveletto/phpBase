@@ -33,8 +33,20 @@ if(isset($_POST['sub'])){
                 <tr>
                     <td>
                         Categoria
-                        <input type="radio"name="gen" id="gen" value="1">Alimento
-                        <input type="radio" name="gen" id="gen" value="2">Bebida
+                        <select name="gen">
+                            <option value="">-select-</option>
+                            <?php
+                            $sqlCity = mysqli_query($con, "select * from categoria");
+
+                            while($item = mysqli_fetch_assoc($sqlCity))
+                            {
+                                $nomeItem = $item["nomeCategoria"];
+                                $idCity = $item["idCategoria"];
+                                echo"
+                                <option value=$idCity>$nomeItem</option>
+                                ";
+                            }
+                            ?>
                     </td>
                 </tr>
                 <tr>
