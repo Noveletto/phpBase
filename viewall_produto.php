@@ -1,7 +1,7 @@
 <?php
 include 'connect.php';
 ?>
-<a href="reg_produto.php">Adicionar Cidade</a>
+<a href="reg_produto.php">Adicionar Produto</a>
 <table border='1' align='center'>
     <tr>
         <th>
