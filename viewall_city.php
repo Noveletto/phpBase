@@ -31,10 +31,10 @@ while($f=  mysqli_fetch_assoc($qu)){
             <?php echo $f['city']?>
         </td>
         <td>
-        <a href="delete_city.php?idCity=<?php echo $f['ID_city']?>">EXCLUIR</a>
+        <a href="delete_city.php?idCity=<?php echo $f['ID_city']?>">🗑️ EXCLUIR 🗑️</a>
         </td>
         <td>
-        <a href="edit_city.php?idCity=<?php echo $f['ID_city']?>">EDITAR</a>
+        <a href="edit_city.php?idCity=<?php echo $f['ID_city']?>">✏️ EDITAR ✏️</a>
         </td>
     </tr>
     <?php
