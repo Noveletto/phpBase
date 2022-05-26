@@ -4,6 +4,6 @@ session_start();
 
 unset($_SESSION["id"]);
 
-header('location:login.php');
+header('location:login1.php');
 
 ?>

@@ -4,7 +4,7 @@ include 'connect.php';
 <a href="reg_categoria.php">Adicionar Categoria</a>
 <table border='1' align='center'>
     <tr>
-        <th>
+        <th>    
             ID Categoria
         </th>
         <th>
