@@ -10,7 +10,7 @@ if(isset($_POST['sub'])){
    if(mysqli_num_rows($qu)>0){
       $f= mysqli_fetch_assoc($qu);
       $_SESSION['id']=$f['id'];
-      header ('location:home.php');
+      header ('location:index.php');
    }
    else{
     echo  "<script>alert('Nome de usuário ou senha estão incorretos ou não estão cadastrados!');</script>";
@@ -44,7 +44,7 @@ if(isset($_POST['sub'])){
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form action="index.php" method="post">
+      <form method="post" enctype="multipart/form-data">
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email" name="user">
           <div class="input-group-append">
@@ -72,7 +72,7 @@ if(isset($_POST['sub'])){
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block" name="sub">Sign In</button>
+          <button type="submit" class="btn btn-primary btn-block" name="sub">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
