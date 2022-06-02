@@ -2,8 +2,11 @@
     include 'connect.php';
     include 'checkLogin.php';
     $s="select*from reg where id='$_SESSION[id]'";
+    $totalREG="select count(*) as total_registro from reg";
     $qu= mysqli_query($con, $s);
+    $tr= mysqli_query($con,$totalREG);
     $f=mysqli_fetch_assoc($qu);
+    $g=mysqli_fetch_assoc($tr);
     
 ?>
 <!DOCTYPE html>
@@ -914,7 +917,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3><?php echo $g["total_registro"] ?></h3>
 
                 <p>User Registrations</p>
               </div>
