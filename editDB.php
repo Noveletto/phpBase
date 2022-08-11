@@ -1,5 +1,7 @@
 <?php
 include 'connect.php';
+include 'checkLogin.php';
+
 if(isset($_POST['sub'])){
     $t=$_POST['text'];
     $u=$_POST['user'];
@@ -10,11 +12,17 @@ if(isset($_POST['sub'])){
     move_uploaded_file($_FILES['f1']['tmp_name'], "image/".$_FILES['f1']['name']);
     $img="image/".$_FILES['f1']['name'];
     }
-    $i="insert into reg(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
+    else{
+        $img=$_POST['img1'];
+    }
+    $i="update reg set name='$t',username='$u',password='$p',city='$c',gender='$g',image='$img' where id='$_SESSION[id]'";
     mysqli_query($con, $i);
-    header ('location:login1.php');
+    header('location:index.php');
 }
-?>
+     $s="select*from reg where id='$_SESSION[id]'";
+    $qu= mysqli_query($con, $s);
+    $f=mysqli_fetch_assoc($qu);
+    ?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +52,7 @@ if(isset($_POST['sub'])){
 
       <form method="post" enctype="multipart/form-data">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Full name" name="text">
+          <input type="text" class="form-control" placeholder="Full name" name="text" value="<?php echo $f['name']?>">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -52,7 +60,7 @@ if(isset($_POST['sub'])){
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email" name="user">
+          <input type="email" class="form-control" placeholder="Email" name="user" value="<?php echo $f['username']?>">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -60,7 +68,7 @@ if(isset($_POST['sub'])){
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password" name="pass">
+          <input type="password" class="form-control" placeholder="Password" name="pass" value="<?php echo $f['password']?>">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -96,7 +104,9 @@ if(isset($_POST['sub'])){
         <input type="radio" name="gen" id="gen" value="female">Feminino
         </div>
         <div>
-        <input type="file" name="f1">
+        <img src="<?php echo $f['image']?>" width="100px" height="100px">
+                        <input type="file" name="f1">
+                        <input type="hidden" name="img1" value="<?php echo $f['image']?>">
         </div>
         <div class="row">
           <div class="col-8">
@@ -109,7 +119,7 @@ if(isset($_POST['sub'])){
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" name="sub" class="btn btn-primary btn-block">Register</button>
+            <button type="submit" name="sub" class="btn btn-primary btn-block" value="submit">Register</button>
           </div>
           <!-- /.col -->
         </div>
