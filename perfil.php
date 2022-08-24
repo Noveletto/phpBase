@@ -89,7 +89,7 @@ if(isset($_POST['sub'])){
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>Followers</b> <a class="float-right">1,322</a>
+                    <b>Cidade</b> <a class="float-right"><?php echo $f['city'];?></a>
                   </li>
                   <li class="list-group-item">
                     <b>Following</b> <a class="float-right">543</a>
