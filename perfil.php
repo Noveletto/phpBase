@@ -9,6 +9,34 @@
     $g=mysqli_fetch_assoc($tr);
     
 ?>
+
+<?php
+include 'connect.php';
+include 'checkLogin.php';
+
+if(isset($_POST['sub'])){
+    $t=$_POST['text'];
+    $u=$_POST['user'];
+    $p=$_POST['pass'];
+    $c=$_POST['city'];
+    $g=$_POST['gen'];
+    if($_FILES['f1']['name']){
+    move_uploaded_file($_FILES['f1']['tmp_name'], "image/".$_FILES['f1']['name']);
+    $img="image/".$_FILES['f1']['name'];
+    }
+    else{
+        $img=$_POST['img1'];
+    }
+    $i="update reg set name='$t',username='$u',password='$p',city='$c',gender='$g',image='$img' where id='$_SESSION[id]'";
+    mysqli_query($con, $i);
+    header('location:index.php');
+}
+     $s="select*from reg where id='$_SESSION[id]'";
+    $qu= mysqli_query($con, $s);
+    $f=mysqli_fetch_assoc($qu);
+    ?> 
+
+
 <?php include 'Components/head.php'; ?>
 
  <!-- Preloader -->
@@ -52,12 +80,10 @@
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
                 <div class="text-center">
-                  <img class="profile-user-img img-fluid img-circle"
-                       src="../../dist/img/user4-128x128.jpg"
-                       alt="User profile picture">
+                <img src="<?php echo $f['image'];?>" class="profile-user-img img-fluid img-circle">
                 </div>
 
-                <h3 class="profile-username text-center">Nina Mcintire</h3>
+                <h3 class="profile-username text-center"><?php echo $f['name'];?></h3>
 
                 <p class="text-muted text-center">Software Engineer</p>
 
@@ -343,35 +369,54 @@
                   <!-- /.tab-pane -->
 
                   <div class="tab-pane" id="settings">
-                    <form class="form-horizontal">
+                    <form method="post" enctype="multipart/form-data" class="form-horizontal">
                       <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                        <label for="inputName" class="col-sm-2 col-form-label">Nome</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputName" placeholder="Name">
+                          <input name="text" type="text" class="form-control" id="inputName" placeholder="Nome" value="<?php echo $f['name']?>">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                          <input type="email" name="user" class="form-control" id="inputEmail" placeholder="Email" value="<?php echo $f['username']?>">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
+                        <label for="inputName2" class="col-sm-2 col-form-label">Senha</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName2" placeholder="Name">
+                          <input type="text" class="form-control" name="pass" id="inputName2" placeholder="Senha" value="<?php echo $f['password']?>">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
+                        <label for="inputExperience" class="col-sm-2 col-form-label">Cidade</label>
                         <div class="col-sm-10">
-                          <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+                        <select name="city">
+           <option value=""> Cidade </option>
+              <?php
+                $sqlCity = mysqli_query($con, "select * from city");
+
+                 while($item = mysqli_fetch_assoc($sqlCity))
+                 {
+                    $nomeItem = $item["city"];
+                    $idCity = $item["ID_city"];
+                    echo"
+                          <option value=$nomeItem>$nomeItem</option>
+                            ";
+                 }
+                ?>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
+                        <label for="inputSkills" class="col-sm-2 col-form-label">Sexo</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+                        <input type="radio"name="gen" id="gen" value="male">Masculino
+                        <input type="radio" name="gen" id="gen" value="female">Feminino
+                        </div>
+                        <div>
+                        <img src="<?php echo $f['image']?>" width="100px" height="100px">
+                        <input type="file" name="f1">
+                        <input type="hidden" name="img1" value="<?php echo $f['image']?>">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -385,7 +430,7 @@
                       </div>
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-danger">Submit</button>
+                          <button type="submit" class="btn btn-danger" name="sub" value="submit">Submit</button>
                         </div>
                       </div>
                     </form>

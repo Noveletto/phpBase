@@ -13,7 +13,7 @@
           <img src="<?php echo $f['image'];?>" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="editDB.php" class="d-block"><?php echo $f['name'];?></a>
+          <a href="perfil.php" class="d-block"><?php echo $f['name'];?></a>
         </div>
       </div>
 
@@ -46,13 +46,13 @@
               <li class="nav-item">
                 <a href="#" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                  <p>Menu Principal</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./pages/examples/perfil.php" class="nav-link">
+                <a href="perfil.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
+                  <p>Perfil</p>
                 </a>
               </li>
               <li class="nav-item">
