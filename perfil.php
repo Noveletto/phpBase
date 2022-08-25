@@ -40,9 +40,9 @@ if(isset($_POST['sub'])){
 <?php include 'Components/head.php'; ?>
 
  <!-- Preloader -->
- <div class="preloader flex-column justify-content-center align-items-center">
+ <!-- <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__shake" src="dist/img/LogoTransparente.png" alt="AdminLTELogo" height="300" width="300">
-  </div> 
+  </div>  -->
 
   <!-- Navbar -->
   <?php include 'Components/navBar.php'; ?>
