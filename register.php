@@ -12,7 +12,7 @@ if(isset($_POST['sub'])){
     }
     $i="insert into reg(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
     mysqli_query($con, $i);
-    header ('location:login1.php');
+    header ('location:totalRegistros.php');
 }
 ?>
 
@@ -35,16 +35,16 @@ if(isset($_POST['sub'])){
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
+    <a href="../../index2.html"><b>Dimond</b>TECH</a>
   </div>
 
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg">Register a new membership</p>
+      <p class="login-box-msg">Registrar um novo usuário</p>
 
       <form method="post" enctype="multipart/form-data">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Full name" name="text">
+          <input type="text" class="form-control" placeholder="Nome Completo" name="text">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -60,7 +60,7 @@ if(isset($_POST['sub'])){
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password" name="pass">
+          <input type="password" class="form-control" placeholder="Senha" name="pass">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -68,7 +68,7 @@ if(isset($_POST['sub'])){
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Retype password">
+          <input type="password" class="form-control" placeholder="Repita a Senha">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -91,6 +91,7 @@ if(isset($_POST['sub'])){
                  }
                 ?>
         </div>
+        </br>
         <div class="input-group mb-3">
         <input type="radio"name="gen" id="gen" value="male">Masculino
         <input type="radio" name="gen" id="gen" value="female">Feminino
@@ -109,25 +110,11 @@ if(isset($_POST['sub'])){
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" name="sub" class="btn btn-primary btn-block">Register</button>
+            <button type="submit" name="sub" class="btn btn-primary btn-block">Registrar</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
-
-      <div class="social-auth-links text-center">
-        <p>- OR -</p>
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i>
-          Sign up using Facebook
-        </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i>
-          Sign up using Google+
-        </a>
-      </div>
-
-      <a href="login1.php" class="text-center">I already have a membership</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

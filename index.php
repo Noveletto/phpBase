@@ -84,12 +84,12 @@
               <div class="inner">
                 <h3><?php echo $g["total_registro"] ?></h3>
 
-                <p>User Registrations</p>
+                <p>Usuários Registrados</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="totalRegistros.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

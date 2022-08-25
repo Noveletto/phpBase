@@ -1,6 +1,6 @@
 <?php
 
-include'connect.php';
+include 'connect.php';
 
 if(isset($_POST['sub'])){
     $u=$_POST['user'];
@@ -37,12 +37,12 @@ if(isset($_POST['sub'])){
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
+    <a href="../../index2.html"><b>Dimond</b>TECH</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">Faça login para iniciar sua sessão como Administrador</p>
 
       <form method="post" enctype="multipart/form-data">
         <div class="input-group mb-3">
@@ -54,7 +54,7 @@ if(isset($_POST['sub'])){
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password" name="pass">
+          <input type="password" class="form-control" placeholder="Senha" name="pass">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -66,34 +66,31 @@ if(isset($_POST['sub'])){
             <div class="icheck-primary">
               <input type="checkbox" id="remember">
               <label for="remember">
-                Remember Me
+              Lembre de mim
               </label>
             </div>
           </div>
           <!-- /.col -->
           <div class="col-4">
-          <button type="submit" class="btn btn-primary btn-block" name="sub">Sign In</button>
+          <button type="submit" class="btn btn-primary btn-block" name="sub">Entrar</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
 
       <div class="social-auth-links text-center mb-3">
-        <p>- OR -</p>
+        <p>- OU -</p>
         <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+          <i class="fab fa-facebook mr-2"></i> Faça o login usando o Facebook
         </a>
         <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+          <i class="fab fa-google-plus mr-2"></i> Faça o login usando o Google+
         </a>
       </div>
       <!-- /.social-auth-links -->
 
       <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
-      </p>
-      <p class="mb-0">
-        <a href="register.php" class="text-center">Register a new membership</a>
+        <a href="esqueciSenha.php">Esqueci minha senha</a>
       </p>
     </div>
     <!-- /.login-card-body -->
