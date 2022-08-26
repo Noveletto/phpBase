@@ -50,15 +50,15 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="perfil.php" class="nav-link">
+                <a href="totalRegistros.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Perfil</p>
+                  <p>Administradores</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="./index3.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
+                  <p>Produtos</p>
                 </a>
               </li>
             </ul>

@@ -48,7 +48,7 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Administradores</h3>
+          <h3 class="card-title">Clientes</h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -84,7 +84,7 @@
               </thead>
               <tbody>
               <?php
-$sq="select * from reg";
+$sq="select * from regclientestcc";
 $qu=mysqli_query($con,$sq);
 while($f=  mysqli_fetch_assoc($qu)){
     ?>
@@ -121,17 +121,17 @@ while($f=  mysqli_fetch_assoc($qu)){
                           <span class="badge badge-success">Success</span>
                       </td>
                       <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="edit_perfil.php?id=<?php echo $f['id']?>">
+                          <a class="btn btn-primary btn-sm" href="edit_usuario.php?id=<?php echo $f['id']?>">
                               <i class="fas fa-folder">
                               </i>
                               View
                           </a>
-                          <a class="btn btn-info btn-sm" href="edit_perfil.php?id=<?php echo $f['id']?>">
+                          <a class="btn btn-info btn-sm" href="edit_usuario.php?id=<?php echo $f['id']?>">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="delete_perfil.php?id=<?php echo $f['id']?>">
+                          <a class="btn btn-danger btn-sm" href="delete_usuario.php?id=<?php echo $f['id']?>">
                               <i class="fas fa-trash">
                               </i>
                               Delete
@@ -143,12 +143,9 @@ while($f=  mysqli_fetch_assoc($qu)){
     <?php
 }
 ?>
-                  
               </tbody>
           </table>
         </div>
-        <!-- /.card-body -->
-      </div>
       <!-- /.card -->
 
     </section>
