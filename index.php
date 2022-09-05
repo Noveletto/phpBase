@@ -2,7 +2,7 @@
     include 'connect.php';
     include 'checkLogin.php';
     $s="select*from reg where id='$_SESSION[id]'";
-    $totalREG="select count(*) as total_registro from reg";
+    $totalREG="select count(*) as total_registro from regclientestcc";
     $qu= mysqli_query($con, $s);
     $tr= mysqli_query($con,$totalREG);
     $f=mysqli_fetch_assoc($qu);
