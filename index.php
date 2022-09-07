@@ -3,12 +3,16 @@
     include 'checkLogin.php';
     $s="select*from reg where id='$_SESSION[id]'";
     $totalREG="select count(*) as total_registro from regclientestcc";
+    $totalPRO="select count(*) as total_produtos from produtos";
     $qu= mysqli_query($con, $s);
     $tr= mysqli_query($con,$totalREG);
     $f=mysqli_fetch_assoc($qu);
     $g=mysqli_fetch_assoc($tr);
+    $tp= mysqli_query($con,$totalPRO);
+    $p=mysqli_fetch_assoc($tp);
     
 ?>
+
 <?php include 'Components/head.php'; ?>
 
  <!-- Preloader -->
@@ -52,14 +56,14 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3><?php echo $p["total_produtos"] ?></h3>
 
-                <p>New Orders</p>
+                <p>Produtos</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="totalProdutos.php" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -74,7 +78,7 @@
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -89,7 +93,7 @@
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="totalUsuarios.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="totalUsuarios.php" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -104,7 +108,7 @@
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

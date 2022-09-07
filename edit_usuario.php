@@ -368,9 +368,9 @@ if(isset($_POST['sub'])){
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Usuário</label>
                         <div class="col-sm-10">
-                          <input type="email" name="user" class="form-control" id="inputEmail" placeholder="Email" value="<?php echo $f['username']?>">
+                          <input type="text" name="user" class="form-control" id="inputEmail" placeholder="Email" value="<?php echo $f['username']?>">
                         </div>
                       </div>
                       <div class="form-group row">
