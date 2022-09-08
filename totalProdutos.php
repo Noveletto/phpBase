@@ -139,7 +139,7 @@ while($f=  mysqli_fetch_assoc($qu)){
                 elseif ($f['estoque'] < 1): // Note a combinação das palavras.
                   ?>
                   <td class="project-state">
-                  <span class="badge badge-falied-red"><?php echo $f['estoque']?></span>
+                  <span class="badge badge-danger"><?php echo $f['estoque']?></span>
               </td>
 <?php
 endif;
