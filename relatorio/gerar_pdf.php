@@ -8,14 +8,48 @@ include_once './conexao.php';
 
 // QUERY para recuperar os registros do banco de dados
 $query_usuarios = "SELECT id, nome, categoria, estoque, preco FROM produtos";
+$query_produto = "select count(*) as total_produtos from produtos WHERE estoque > 0";
+$query_tproduto = "select count(*) as total_produtos from produtos";
+$query_vendas = "SELECT sum(estoque * preco) as valor_vendas from produtos";
+$query_categoria1 = "select count(*) as total_produtos from produtos WHERE categoria = 'Livro-Escolar' and estoque > 0";
+$query_categoria2 = "select count(*) as total_produtos from produtos WHERE categoria = 'Camisa-Masculina' and estoque > 0";
+$query_categoria3 = "select count(*) as total_produtos from produtos WHERE categoria = 'Camisa-Feminina' and estoque > 0";
+$query_categoria4 = "select count(*) as total_produtos from produtos WHERE categoria = 'Calça-Masculina' and estoque > 0";
+$query_categoria5 = "select count(*) as total_produtos from produtos WHERE categoria = 'Calça-Feminina' and estoque > 0";
 
 // Prepara a QUERY
 $result_usuarios = $conn->prepare($query_usuarios);
 
+$result_produto = $conn->prepare($query_produto);
+
+$result_tproduto = $conn->prepare($query_tproduto);
+
+$result_vendas = $conn->prepare($query_vendas);
+
+$result_cat1 = $conn->prepare($query_categoria1);
+
+$result_cat2 = $conn->prepare($query_categoria2);
+
+$result_cat3 = $conn->prepare($query_categoria3);
+
+$result_cat4 = $conn->prepare($query_categoria4);
+
+$result_cat5 = $conn->prepare($query_categoria5);
+
 // Executar a QUERY
 $result_usuarios->execute();
+$result_produto->execute();
+$result_tproduto->execute();
+$result_vendas->execute();
+$result_cat1->execute();
+$result_cat2->execute();
+$result_cat3->execute();
+$result_cat4->execute();
+$result_cat5->execute();
 
 // Informacoes para o PDF
+
+
 $dados = "<!DOCTYPE html>";
 $dados .= "<html lang='pt-br'>";
 $dados .= "<head>";
@@ -24,7 +58,11 @@ $dados .= "<link rel='stylesheet' href='http://localhost/celke/css/custom.css'";
 $dados .= "<title>Relatório Produtos</title>";
 $dados .= "</head>";
 $dados .= "<body>";
-$dados .= "<h1>Lista de Produtos</h1>";
+while($row_tproduto = $result_tproduto->fetch(PDO::FETCH_ASSOC)){
+    //var_dump($row_usuario);
+    extract($row_tproduto);
+    $dados .= "<h1>Lista de Produtos - $total_produtos </h1>";
+}
 
 // Ler os registros retornado do BD
 while($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)){
@@ -37,10 +75,63 @@ while($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)){
     $dados .= "Preço: $preco <br>";
     $dados .= "<hr>";
 }
+$dados .= "<br>";
+$dados .= "<br>";
+$dados .= "<br>";
+$dados .= "<br>";
+$dados .= "<br>";
+$dados .= "<br>";
+$dados .= "<br>";
+$dados .= "<br>";
+$dados .= "<br>";
+$dados .= "<br>";
+$dados .= "<br>";
+$dados .= "<br>";
+$dados .= "<h1>Resumo dos Produtos em estoque</h1>";
+$dados .= "<br>";
 
-$dados .= "<img src='\LogoTransparente.png'><br>";
-$dados .= "";
-$dados .= "</body>";
+while($row_produto = $result_produto->fetch(PDO::FETCH_ASSOC)){
+    //var_dump($row_usuario);
+    extract($row_produto);
+    $dados .= "<h3>Temos $total_produtos produtos com pelo menos 1 unidade em estoque</h3>";
+}
+
+while($row_vendas = $result_vendas->fetch(PDO::FETCH_ASSOC)){
+    //var_dump($row_usuario);
+    extract($row_vendas);
+    $dados .= "<h3>Temos um total de R$$valor_vendas em produtos no estoque </h3>";
+}
+
+while($row_cat1 = $result_cat1->fetch(PDO::FETCH_ASSOC)){
+    //var_dump($row_usuario);
+    extract($row_cat1);
+    $dados .= "<h3>Temos um total de $total_produtos da categoria Livro Escolar no estoque </h3>";
+}
+
+while($row_cat2 = $result_cat2->fetch(PDO::FETCH_ASSOC)){
+    //var_dump($row_usuario);
+    extract($row_cat2);
+    $dados .= "<h3>Temos um total de $total_produtos da categoria Camisa Masculina no estoque </h3>";
+}
+
+while($row_cat3 = $result_cat3->fetch(PDO::FETCH_ASSOC)){
+    //var_dump($row_usuario);
+    extract($row_cat3);
+    $dados .= "<h3>Temos um total de $total_produtos da categoria Camisa Feminina no estoque </h3>";
+}
+
+while($row_cat4 = $result_cat4->fetch(PDO::FETCH_ASSOC)){
+    //var_dump($row_usuario);
+    extract($row_cat4);
+    $dados .= "<h3>Temos um total de $total_produtos da categoria Calça Masculina no estoque </h3>";
+}
+
+while($row_cat5 = $result_cat5->fetch(PDO::FETCH_ASSOC)){
+    //var_dump($row_usuario);
+    extract($row_cat5);
+    $dados .= "<h3>Temos um total de $total_produtos da categoria Calça Feminina no estoque </h3>";
+}
+
 
 
 // Referenciar o namespace Dompdf

@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <a href="logout.php" class="brand-link">
       <img src="./image/LogoTransparente.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">DimondTech</span>
+      <span class="brand-text font-weight-light">DiamondTech</span>
     </a>
 
     <!-- Sidebar -->

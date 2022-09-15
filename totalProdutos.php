@@ -127,7 +127,7 @@ while($f=  mysqli_fetch_assoc($qu)){
                               </div>
                           </div>
                           <small>
-                          <?php echo $f['preco']?>
+                          <?php echo "R$'{$f['preco']}"?>
                           </small>
                       </td>
                       <?php
