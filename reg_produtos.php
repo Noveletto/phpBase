@@ -48,7 +48,7 @@ if(isset($_POST['sub'])){
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Editar</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Adicionar</a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">

@@ -34,7 +34,7 @@ if(isset($_POST['sub'])){
 <div class="login-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
+      <a href="../../index2.html" class="h1"><b>Diamond</b>TECH</a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Você está a apenas um passo de sua nova senha, recupere sua senha agora.</p>
