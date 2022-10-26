@@ -11,11 +11,11 @@ $query_usuarios = "SELECT id, nome, categoria, estoque, preco FROM produtos";
 $query_produto = "select count(*) as total_produtos from produtos WHERE estoque > 0";
 $query_tproduto = "select count(*) as total_produtos from produtos";
 $query_vendas = "SELECT sum(estoque * preco) as valor_vendas from produtos";
-$query_categoria1 = "select count(*) as total_produtos from produtos WHERE categoria = 'Livro-Escolar' and estoque > 0";
-$query_categoria2 = "select count(*) as total_produtos from produtos WHERE categoria = 'Camisa-Masculina' and estoque > 0";
-$query_categoria3 = "select count(*) as total_produtos from produtos WHERE categoria = 'Camisa-Feminina' and estoque > 0";
-$query_categoria4 = "select count(*) as total_produtos from produtos WHERE categoria = 'Calça-Masculina' and estoque > 0";
-$query_categoria5 = "select count(*) as total_produtos from produtos WHERE categoria = 'Calça-Feminina' and estoque > 0";
+$query_categoria1 = "SELECT sum(estoque) as total_produtos from produtos WHERE categoria = 'Livro-Escolar' and estoque > 0";
+$query_categoria2 = "SELECT sum(estoque) as total_produtos from produtos WHERE categoria = 'Camisa-Masculina' and estoque > 0";
+$query_categoria3 = "SELECT sum(estoque) as total_produtos from produtos WHERE categoria = 'Camisa-Feminina' and estoque > 0";
+$query_categoria4 = "SELECT sum(estoque) as total_produtos from produtos WHERE categoria = 'Calça-Masculina' and estoque > 0";
+$query_categoria5 = "SELECT sum(estoque) as total_produtos from produtos WHERE categoria = 'Calça-Feminina' and estoque > 0";
 
 // Prepara a QUERY
 $result_usuarios = $conn->prepare($query_usuarios);
@@ -93,43 +93,57 @@ $dados .= "<br>";
 while($row_produto = $result_produto->fetch(PDO::FETCH_ASSOC)){
     //var_dump($row_usuario);
     extract($row_produto);
+    if($total_produtos > 0){
     $dados .= "<h3>Temos $total_produtos produtos com pelo menos 1 unidade em estoque</h3>";
+    }
 }
 
 while($row_vendas = $result_vendas->fetch(PDO::FETCH_ASSOC)){
     //var_dump($row_usuario);
     extract($row_vendas);
+    if($total_produtos > 0){
     $dados .= "<h3>Temos um total de R$$valor_vendas em produtos no estoque </h3>";
+}
 }
 
 while($row_cat1 = $result_cat1->fetch(PDO::FETCH_ASSOC)){
     //var_dump($row_usuario);
     extract($row_cat1);
+    if($total_produtos > 0){
     $dados .= "<h3>Temos um total de $total_produtos da categoria Livro Escolar no estoque </h3>";
+}
 }
 
 while($row_cat2 = $result_cat2->fetch(PDO::FETCH_ASSOC)){
     //var_dump($row_usuario);
     extract($row_cat2);
+    if($total_produtos > 0){
     $dados .= "<h3>Temos um total de $total_produtos da categoria Camisa Masculina no estoque </h3>";
+}
 }
 
 while($row_cat3 = $result_cat3->fetch(PDO::FETCH_ASSOC)){
     //var_dump($row_usuario);
     extract($row_cat3);
+    if($total_produtos > 0){
     $dados .= "<h3>Temos um total de $total_produtos da categoria Camisa Feminina no estoque </h3>";
+}
 }
 
 while($row_cat4 = $result_cat4->fetch(PDO::FETCH_ASSOC)){
     //var_dump($row_usuario);
     extract($row_cat4);
+    if($total_produtos > 0){
     $dados .= "<h3>Temos um total de $total_produtos da categoria Calça Masculina no estoque </h3>";
+}
 }
 
 while($row_cat5 = $result_cat5->fetch(PDO::FETCH_ASSOC)){
     //var_dump($row_usuario);
     extract($row_cat5);
+    if($total_produtos > 0){
     $dados .= "<h3>Temos um total de $total_produtos da categoria Calça Feminina no estoque </h3>";
+    }
 }
 
 
