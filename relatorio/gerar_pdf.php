@@ -11,11 +11,11 @@ $query_usuarios = "SELECT id, nome, categoria, estoque, preco FROM produtos";
 $query_produto = "select count(*) as total_produtos from produtos WHERE estoque > 0";
 $query_tproduto = "select count(*) as total_produtos from produtos";
 $query_vendas = "SELECT sum(estoque * preco) as valor_vendas from produtos";
-$query_categoria1 = "select count(*) as total_produtos from produtos WHERE categoria = 'Livro-Escolar' and estoque > 0";
-$query_categoria2 = "select count(*) as total_produtos from produtos WHERE categoria = 'Camisa-Masculina' and estoque > 0";
-$query_categoria3 = "select count(*) as total_produtos from produtos WHERE categoria = 'Camisa-Feminina' and estoque > 0";
-$query_categoria4 = "select count(*) as total_produtos from produtos WHERE categoria = 'Calça-Masculina' and estoque > 0";
-$query_categoria5 = "select count(*) as total_produtos from produtos WHERE categoria = 'Calça-Feminina' and estoque > 0";
+$query_categoria1 = "select sum(estoque) as total_produtos from produtos where categoria='Livro-Escolar' and estoque > 0";
+$query_categoria2 = "select sum(estoque) as total_produtos from produtos where categoria = 'Camisa-Masculina' and estoque > 0";
+$query_categoria3 = "select sum(estoque) as total_produtos from produtos where categoria= 'Camisa-Feminina' and estoque > 0";
+$query_categoria4 = "select sum(estoque) as total_produtos from produtos where categoria= 'Calça-Masculina' and estoque > 0";
+$query_categoria5 = "select sum(estoque) as total_produtos from produtos where categoria= 'Calça-Feminina' and estoque > 0";
 
 // Prepara a QUERY
 $result_usuarios = $conn->prepare($query_usuarios);
