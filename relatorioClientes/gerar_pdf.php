@@ -62,13 +62,13 @@ while($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)){
     extract($row_usuario);
     $dados .= "<table border='1'>
     <tr>
-        <td>ID</td>
-        <td>Nome</td>
-        <td>Cidade</td>
-        <td>Sexo</td>
-        <td>Nome de usuário</td>
-        <td>Senha</td>
-        <td>Foto de Perfil</td>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Cidade</th>
+        <th>Sexo</th>
+        <th>Nome de usuário</th>
+        <th>Senha</th>
+        <th>Foto de Perfil</th>
     </tr>
     <tr>
     <td>$id</td>
@@ -80,14 +80,14 @@ while($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)){
     <td><img src= 'http://localhost/phpBase/relatorioClientes/$image' width='100' height='100'></td>
     </tr>
 </table>";
-    $dados .= "ID: $id <br>";
-    $dados .= "Nome: $name <br>";
-    $dados .= "Cidade: $city <br>";
-    $dados .= "Sexo: $gender <br>";
-    $dados .= "Nome de usuário: $username <br>";
-    $dados .= "Senha: $password <br>";
-    $dados .= "<img src= 'http://localhost/phpBase/relatorioClientes/$image' width='100' height='100'> <br>";
-    $dados .= "<hr>";
+  //  $dados .= "ID: $id <br>";
+  //  $dados .= "Nome: $name <br>";
+  //  $dados .= "Cidade: $city <br>";
+  //  $dados .= "Sexo: $gender <br>";
+  //  $dados .= "Nome de usuário: $username <br>";
+  //  $dados .= "Senha: $password <br>";
+  //  $dados .= "<img src= 'http://localhost/phpBase/relatorioClientes/$image' width='100' height='100'> <br>";
+  //  $dados .= "<hr>";
 }
 $dados .= "<br>";
 $dados .= "<br>";
@@ -99,7 +99,7 @@ $dados .= "<br>";
 $dados .= "<br>";
 $dados .= "<br>";
 $dados .= "<br>";
-$dados .= "<h1>asd asd asda sdas dResumo dos Clientes Cadastrados</h1>";
+$dados .= "<h1>Resumo dos Clientes Cadastrados</h1>";
 $dados .= "<br>";
 
 while($row_clienteM = $result_clienteM->fetch(PDO::FETCH_ASSOC)){
