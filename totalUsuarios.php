@@ -105,7 +105,7 @@ while($f=  mysqli_fetch_assoc($qu)){
                       <td>
                           <ul class="list-inline">
                               <li class="list-inline-item">
-                              <img src="../TCCtestes\TCCprogramacao/<?php echo $f['image'];?>" class="img-circle elevation-2" alt="User Image" height="42" width="42">
+                              <img src="<?php echo $f['image'];?>" class="img-circle elevation-2" alt="User Image" height="42" width="42">
                               </li>
                           </ul>
                       </td>
