@@ -1,6 +1,13 @@
 <?php
     include 'connect.php';
     include 'checkLogin.php';
+    $s="select*from reg where id='$_SESSION[id]'";
+    $totalREG="select count(*) as total_registro from produtos";
+    $qu= mysqli_query($con, $s);
+    $tr= mysqli_query($con,$totalREG);
+    $f=mysqli_fetch_assoc($qu);
+    $g=mysqli_fetch_assoc($tr);
+    
 ?>
 
 <?php
@@ -21,9 +28,7 @@ if(isset($_POST['sub'])){
     mysqli_query($con, $i);
     header('location:totalProdutos.php');
 }
-     $s="select*from produtos where id='$id'";
-    $qu= mysqli_query($con, $s);
-    $f=mysqli_fetch_assoc($qu);
+     
     ?>
 
 
