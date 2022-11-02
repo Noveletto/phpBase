@@ -158,7 +158,7 @@ if(isset($_POST['sub'])){
                       <div class="form-group row">
                         <label for="inputSkills" class="col-sm-2 col-form-label">Sexo</label>
                         <div class="col-sm-10">
-                        <input type="radio"name="gen" id="gen" value="male">
+                        <input type="radio" name="gen" id="gen" value="male">
                         <input type="radio" name="gen" id="gen" value="female">
                         </div>
                         <div>

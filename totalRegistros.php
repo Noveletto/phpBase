@@ -97,9 +97,6 @@ while($f=  mysqli_fetch_assoc($qu)){
                           <?php echo $f['name']?>
                           </a>
                           <br/>
-                          <small>
-                              Created 01.01.2019
-                          </small>
                       </td>
                       <td>
                           <ul class="list-inline">

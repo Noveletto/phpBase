@@ -49,7 +49,7 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Clientes</h3>
+          <h3 class="card-title"><?php echo "Total: {$g['total_registro']}"?></h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -101,9 +101,6 @@ while($f=  mysqli_fetch_assoc($qu)){
                           <?php echo $f['nome']?>
                           </a>
                           <br/>
-                          <small>
-                              Created 01.01.2019
-                          </small>
                       </td>
                       <td>
                           <ul class="list-inline">

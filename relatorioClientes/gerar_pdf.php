@@ -61,34 +61,34 @@ while($row_tproduto = $result_tproduto->fetch(PDO::FETCH_ASSOC)){
 while($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)){
     //var_dump($row_usuario);
     extract($row_usuario);
-    $dados .= "<table border='1'>
-    <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Cidade</th>
-        <th>Sexo</th>
-        <th>Nome de usuário</th>
-        <th>Senha</th>
-        <th>Foto de Perfil</th>
-    </tr>
-    <tr>
-    <td>$id</td>
-    <td>$name</td>
-    <td>$city</td>
-    <td>$gender</td>
-    <td>$username</td>
-    <td>$password</td>
-    <td><img src= 'http://localhost/phpBase/relatorioClientes/image/067.JPG' width='100' height='100'></td>
-    </tr>
-</table>";
-//    $dados .= "ID: $id <br>";
-//    $dados .= "Nome: $name <br>";
-//    $dados .= "Cidade: $city <br>";
-//    $dados .= "Sexo: $gender <br>";
-//    $dados .= "Nome de usuário: $username <br>";
-//    $dados .= "Senha: $password <br>";
-//    $dados .= "<img src= 'http://localhost/TCCtestes/TCCprogramacao/relatorioClientes/$image' width='100' height='100'> <br>";
-  //  $dados .= "<hr>";
+//     $dados .= "<table border='1'>
+//     <tr>
+//         <th>ID</th>
+//         <th>Nome</th>
+//         <th>Cidade</th>
+//         <th>Sexo</th>
+//         <th>Nome de usuário</th>
+//         <th>Senha</th>
+//         <th>Foto de Perfil</th>
+//     </tr>
+//     <tr>
+//     <td>$id</td>
+//     <td>$name</td>
+//     <td>$city</td>
+//     <td>$gender</td>
+//     <td>$username</td>
+//     <td>$password</td>
+//     <td><img src= 'http://localhost/phpBase/relatorioClientes/image/1.JPG' width='100' height='100'></td>
+//     </tr>
+// </table>";
+   $dados .= "ID: $id <br>";
+   $dados .= "Nome: $name <br>";
+   $dados .= "Cidade: $city <br>";
+   $dados .= "Sexo: $gender <br>";
+   $dados .= "Nome de usuário: $username <br>";
+   $dados .= "Senha: $password <br>";
+   $dados .= "<img src= 'http://localhost/TCCtestes/TCCprogramacao/relatorioClientes/image/1.JPG' width='100' height='100'> <br>";
+   $dados .= "<hr>";
 }
 $dados .= "<br>";
 $dados .= "<br>";

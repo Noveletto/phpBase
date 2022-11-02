@@ -4,12 +4,15 @@
     $s="select*from reg where id='$_SESSION[id]'";
     $totalREG="select count(*) as total_registro from regclientestcc";
     $totalPRO="select count(*) as total_produtos from produtos";
+    $totalPRE = "SELECT sum(estoque * preco) as valor_vendas from produtos";
     $qu= mysqli_query($con, $s);
     $tr= mysqli_query($con,$totalREG);
     $f=mysqli_fetch_assoc($qu);
     $g=mysqli_fetch_assoc($tr);
     $tp= mysqli_query($con,$totalPRO);
     $p=mysqli_fetch_assoc($tp);
+    $tpr= mysqli_query($con,$totalPRE);
+    $t=mysqli_fetch_assoc($tpr);
     
 ?>
 
@@ -71,9 +74,9 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3><sup style="font-size: 20px">R$</sup><?php echo $t["valor_vendas"] ?></h3>
 
-                <p>Bounce Rate</p>
+                <p>Total em estoque</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
