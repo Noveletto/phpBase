@@ -1,9 +1,10 @@
 <?php
     include 'connect.php';
     include 'checkLogin.php';
-    $s="select*from reg where id='$_SESSION[id]'";
+    $s="select*from reg where id=1";
     $totalREG="select count(*) as total_registro from regclientestcc";
     $totalPRO="select count(*) as total_produtos from produtos";
+    $totalPED="select count(*) as total_produtos from pedidos";
     $totalPRE = "SELECT sum(estoque * preco) as valor_vendas from produtos";
     $qu= mysqli_query($con, $s);
     $tr= mysqli_query($con,$totalREG);
@@ -13,6 +14,8 @@
     $p=mysqli_fetch_assoc($tp);
     $tpr= mysqli_query($con,$totalPRE);
     $t=mysqli_fetch_assoc($tpr);
+    $tpe= mysqli_query($con,$totalPED);
+    $tped=mysqli_fetch_assoc($tpe);
     
 ?>
 
@@ -104,9 +107,9 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
+                <h3><?php echo $tped["total_produtos"] ?></h3>
 
-                <p>Unique Visitors</p>
+                <p>Pedidos feitos</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>

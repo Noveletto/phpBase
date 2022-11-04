@@ -112,9 +112,9 @@ if(isset($_POST['sub'])){
                         <input type="radio" name="gen" id="gen" value="female">
                         </div>
                         <div>
-                        <img src="<?php echo $f['imagem']?>" width="100px" height="100px">
+                        
                         <input type="file" name="f1">
-                        <input type="hidden" name="img1" value="<?php echo $f['imagem']?>">
+                        <input type="hidden" name="img1" value="">
                         </div>
                       </div>
                       <div class="form-group row">

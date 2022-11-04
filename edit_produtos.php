@@ -22,8 +22,8 @@ if(isset($_POST['sub'])){
     mysqli_query($con, $i);
     header('location:totalProdutos.php');
 }
-     $s="select*from produtos where id='$id'";
-    $qu= mysqli_query($con, $s);
+     $y="select*from produtos where id='$id'";
+    $qu= mysqli_query($con, $y);
     $f=mysqli_fetch_assoc($qu);
     ?>
 

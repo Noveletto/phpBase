@@ -4,7 +4,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$dbname = "test";
+$dbname = "tccofc";
 
 try {
     //Conexao com a porta
