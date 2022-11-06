@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05-Nov-2022 às 20:44
+-- Tempo de geração: 06-Nov-2022 às 02:30
 -- Versão do servidor: 10.4.18-MariaDB
 -- versão do PHP: 8.0.3
 
@@ -110,7 +110,7 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`id`, `nome`, `descricao`, `categoria`, `imagem`, `estoque`, `preco`) VALUES
-(12, 'Calça E.M - Masculino - Tamanho M', 'Calça para estudantes do Unasp-HT do Ensino Médio do gênero masculino do tamanho M.', 'Calça-Masculina', 'image/calca1.jpg', '2', '100'),
+(12, 'Calça E.M - Masculino - Tamanho M', 'Calça para estudantes do Unasp-HT do Ensino Médio do gênero masculino do tamanho M.', 'Calça-Masculina', 'image/calca1.jpg', '5', '100'),
 (13, 'Livro Matemática - 3° E.M', 'Livro para estudantes do ensino médio do UNASP - HT, apenas o primeiro módulo.', 'Livro-Escolar', 'image/imagem_2022-09-07_094649543.png', '2', '60.50'),
 (14, 'Livro História - 3° E.M', 'Livro para estudantes do TERCEIRO ano do ensino médio do UNASP - HT, com 620 páginas.', 'Livro-Escolar', 'image/historia.png', '4', '80'),
 (15, 'Livro Português - 3° E.M', 'Livro para estudantes do TERCEIRO ano do ensino médio do UNASP - HT, com 159 páginas.', 'Livro-Escolar', 'image/imagem_2022-09-15_154113011.png', '2', '100'),
@@ -140,7 +140,7 @@ CREATE TABLE `reg` (
 --
 
 INSERT INTO `reg` (`name`, `username`, `password`, `city`, `image`, `gender`, `id`) VALUES
-('Gustavo', 'g@u', '1', 'Hortolandia', 'image/067.JPG', 'male', 1);
+('Gustavo', 'admin@1', '1', 'Sumare', 'image/067.JPG', 'male', 1);
 
 -- --------------------------------------------------------
 
@@ -163,7 +163,8 @@ CREATE TABLE `regclientestcc` (
 --
 
 INSERT INTO `regclientestcc` (`name`, `username`, `password`, `city`, `image`, `gender`, `id`) VALUES
-('Gustavo', 'gustavo@g', '1', 'Sumare', 'image/040.JPG', 'male', 1);
+('Gustavo', 'gustavo@g', '1', 'Sumare', 'image/040.JPG', 'male', 1),
+('Gabriel', 'g@a', '1', 'Hortolandia', 'image/ga.jpg', 'male', 5);
 
 --
 -- Índices para tabelas despejadas
@@ -225,7 +226,7 @@ ALTER TABLE `city`
 -- AUTO_INCREMENT de tabela `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `produtos`
@@ -243,7 +244,7 @@ ALTER TABLE `reg`
 -- AUTO_INCREMENT de tabela `regclientestcc`
 --
 ALTER TABLE `regclientestcc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
