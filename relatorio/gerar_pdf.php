@@ -75,7 +75,7 @@ while($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)){
     $dados .= "Estoque: $estoque <br>";
     $dados .= "Preço: R$$preco <br>";
     $dados .= "<hr>";
-}
+}  
 $dados .= "<br>";
 $dados .= "<br>";
 $dados .= "<br>";

@@ -40,7 +40,7 @@ if(isset($_POST['sub'])){
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <?php include 'Components/mainSidebar.php'; ?>
+  
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -84,11 +84,11 @@ if(isset($_POST['sub'])){
                     <b>Estoque</b> <a class="float-right"><?php echo $f['estoque'];?></a>
                   </li>
                   <li class="list-group-item">
-                    <b>Preço</b> <a class="float-right"><?php echo $f['preco'];?></a>
+                    <b>Preço</b> <a class="float-right">R$<?php echo number_format($f['preco'],2,",",".");?></a>
                   </li>
                 </ul>
 
-                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+                
               </div>
               <!-- /.card-body -->
             </div>

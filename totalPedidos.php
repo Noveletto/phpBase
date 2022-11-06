@@ -34,8 +34,6 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="register.php">Adicionar</a></li>
-              <li class="breadcrumb-item"><a href="relatorioClientes/gerar_pdf.php">Gerar Relatório</a></li>
               <li class="breadcrumb-item active">Pedidos</li>
             </ol>
           </div>

@@ -29,7 +29,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <?php include 'Components/mainSidebar.php'; ?>
+  
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -42,7 +42,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="index.php">Home</a></li>
               <li class="breadcrumb-item active">User Profile</li>
             </ol>
           </div>
@@ -65,7 +65,7 @@
 
                 <h3 class="profile-username text-center"><?php echo $pe['nome'];?></h3>
 
-                <p class="text-muted text-center">R$<?php echo $pe['preco'];?></p>
+                <p class="text-muted text-center">R$<?php echo number_format($pe['preco'],2,",",".");?></p>
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
@@ -91,7 +91,7 @@
                   </li>
                 </ul>
 
-                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+                <a href="delete_pedido.php?id=<?php echo $f['id']?>" class="btn btn-primary btn-block"><b>Concluir Compra</b></a>
               </div>
               <!-- /.card-body -->
             </div>

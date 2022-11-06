@@ -118,11 +118,7 @@ while($f=  mysqli_fetch_assoc($qu)){
                           <span class="badge badge-success">Success</span>
                       </td>
                       <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="edit_perfil.php?id=<?php echo $f['id']?>">
-                              <i class="fas fa-folder">
-                              </i>
-                              View
-                          </a>
+                          
                           <a class="btn btn-info btn-sm" href="edit_perfil.php?id=<?php echo $f['id']?>">
                               <i class="fas fa-pencil-alt">
                               </i>

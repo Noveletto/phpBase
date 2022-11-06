@@ -77,7 +77,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3><sup style="font-size: 20px">R$</sup><?php echo $t["valor_vendas"] ?></h3>
+                <h3><sup style="font-size: 20px">R$</sup><?php echo number_format($t["valor_vendas"],2,",",".");?></h3>
 
                 <p>Total em estoque</p>
               </div>

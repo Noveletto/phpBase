@@ -56,6 +56,18 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="totalUsuarios.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Clientes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="totalPedidos.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pedidos</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="totalProdutos.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Produtos</p>

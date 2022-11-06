@@ -82,15 +82,7 @@ if(isset($_POST['sub'])){
                   <li class="list-group-item">
                     <b>Cidade</b> <a class="float-right"><?php echo $f['city'];?></a>
                   </li>
-                  <li class="list-group-item">
-                    <b>Following</b> <a class="float-right">543</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Friends</b> <a class="float-right">13,287</a>
-                  </li>
-                </ul>
-
-                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+                  
               </div>
               <!-- /.card-body -->
             </div>

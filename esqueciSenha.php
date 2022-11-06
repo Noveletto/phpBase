@@ -43,7 +43,7 @@ if(isset($_POST['sub'])){
       <p class="login-box-msg">Você esqueceu sua senha? Aqui você pode facilmente recuperar uma nova senha.</p>
       <form enctype="multipart/form-data" method="post">
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Usuário" name="name">
+          <input type="text" class="form-control" placeholder="Usuário" name="name">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>

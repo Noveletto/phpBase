@@ -124,7 +124,7 @@ while($f=  mysqli_fetch_assoc($qu)){
                               </div>
                           </div>
                           <small>
-                          <?php echo "R$'{$f['preco']}"?>
+                          R$<?php echo number_format($f['preco'],2,",",".");?>
                           </small>
                       </td>
                       <?php
@@ -144,11 +144,6 @@ endif;
 ?>
                       
                       <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="edit_produtos.php?id=<?php echo $f['id']?>">
-                              <i class="fas fa-folder">
-                              </i>
-                              View
-                          </a>
                           <a class="btn btn-info btn-sm" href="edit_produtos.php?id=<?php echo $f['id']?>">
                               <i class="fas fa-pencil-alt">
                               </i>

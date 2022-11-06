@@ -84,10 +84,14 @@ while($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)){
    $dados .= "ID: $id <br>";
    $dados .= "Nome: $name <br>";
    $dados .= "Cidade: $city <br>";
-   $dados .= "Sexo: $gender <br>";
+   if($gender == "male"){
+   $dados .= "Sexo: Masculino <br>";
+}
+else{
+    $dados .= "Sexo: Feminino <br>";
+}
    $dados .= "Nome de usuário: $username <br>";
    $dados .= "Senha: $password <br>";
-   $dados .= "<img src= 'http://localhost/TCCtestes/TCCprogramacao/relatorioClientes/image/1.JPG' width='100' height='100'> <br>";
    $dados .= "<hr>";
 }
 $dados .= "<br>";
