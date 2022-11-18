@@ -2,10 +2,13 @@
     include 'connect.php';
     include 'checkLogin.php';
     $s="select*from reg where id='$_SESSION[id]'";
-    $totalREG="select count(*) as total_registro from produtos";
+    $totalREG="select count(*) as total_registro from reg";
+    $totalVEN="SELECT sum(precoTotal) as valor_vendas from vendas";
     $qu= mysqli_query($con, $s);
     $tr= mysqli_query($con,$totalREG);
+    $tv= mysqli_query($con,$totalVEN);
     $f=mysqli_fetch_assoc($qu);
+    $v=mysqli_fetch_assoc($tv);
     $g=mysqli_fetch_assoc($tr);
     
 ?>
@@ -30,13 +33,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Produtos</h1>
+            <h1>Vendas</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="reg_produtos.php">Adicionar</a></li>
-              <li class="breadcrumb-item"><a href=".\relatorio\gerar_pdf.php">Relatório</a></li>
-              <li class="breadcrumb-item active">Produtos</li>
+              <li class="breadcrumb-item active">Vendas</li>
             </ol>
           </div>
         </div>
@@ -49,7 +50,7 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title"><?php echo "Total: {$g['total_registro']}"?></h3>
+          <h3 class="card-title">R$<?php echo number_format($v['valor_vendas'],2,",",".");?></h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -68,19 +69,19 @@
                           #
                       </th>
                       <th style="width: 20%">
-                          Nome do Produto
+                          Nome Completo
                       </th>
-                      <th style="width: 30%">
+                      <th style="width: 20%">
+                          Funcionário
+                      </th>
+                      <th style="width: 20%">
                           Imagem do Produto
                       </th>
                       <th>
-                          Categoria
+                          Telefone
                       </th>
-                      <th style="width: 1%" class="text-center">
-                          Preço
-                      </th>
-                      <th style="width: 10%" class="text-center">
-                          Quantidade
+                      <th style="width: 8%" class="text-center">
+                          Preço Total
                       </th>
                       <th style="width: 20%">
                       </th>
@@ -88,24 +89,30 @@
               </thead>
               <tbody>
               <?php
-$sq="select * from produtos";
+$sq="select * from vendas";
 $qu=mysqli_query($con,$sq);
 while($f=  mysqli_fetch_assoc($qu)){
     ?>
     <tr>
                       <td>
-                      <?php echo $f['id']?>
+                      <?php echo $f['idVenda']?>
                       </td>
                       <td>
                           <a>
-                          <?php echo $f['nome']?>
+                          <?php echo $f['nomeCliente']?>
+                          </a>
+                          <br/>
+                      </td>
+                      <td>
+                          <a>
+                          <?php echo $f['funcionario']?>
                           </a>
                           <br/>
                       </td>
                       <td>
                           <ul class="list-inline">
                               <li class="list-inline-item">
-                              <img src="<?php echo $f['imagem'];?>" class="img-circle elevation-2" alt="User Image" height="42" width="42">
+                              <img src="../TCCtestes\TCCprogramacao/<?php echo $f['imageProduto'];?>" class="img-circle elevation-2" alt="User Image" height="42" width="42">
                               </li>
                           </ul>
                       </td>
@@ -115,52 +122,22 @@ while($f=  mysqli_fetch_assoc($qu)){
                               </div>
                           </div>
                           <small>
-                          <?php echo $f['categoria']?>
+                          <?php echo $f['telCliente']?>
                           </small>
                       </td>
-                      <td class="project_progress">
-                          <div class="progress progress-sm">
-                              
-                              </div>
-                          </div>
-                          <small>
-                          R$<?php echo number_format($f['preco'],2,",",".");?>
-                          </small>
+                      <td class="project-state">
+                          <span>R$<?php echo number_format($f['precoTotal'],2,",",".");?></span>
                       </td>
-                      <?php
-                      if ($f['estoque'] > 0):
-                        ?>
-                        <td class="project-state">
-                        <span class="badge badge-success"><?php echo $f['estoque']?></span>
-                    </td>
-                    <?php
-                elseif ($f['estoque'] < 1): // Note a combinação das palavras.
-                  ?>
-                  <td class="project-state">
-                  <span class="badge badge-danger"><?php echo $f['estoque']?></span>
-              </td>
-<?php
-endif;
-?>
-                      
                       <td class="project-actions text-right">
-                          <a class="btn btn-info btn-sm" href="edit_produtos.php?id=<?php echo $f['id']?>">
-                              <i class="fas fa-pencil-alt">
+                          <a class="btn btn-primary btn-sm" href="edit_venda.php?id=<?php echo $f['idVenda']?>">
+                              <i class="fas fa-folder">
                               </i>
-                              Editar
+                              View
                           </a>
-                          <a class="btn btn-primary btn-sm" href="venda.php?id=<?php echo $f['id']?>">
-                              <i class="bi bi-cart">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-</svg>
-                              </i>
-                              Vender
-                          </a>
-                          <a class="btn btn-danger btn-sm" href="delete_produtos.php?id=<?php echo $f['id']?>">
+                          <a class="btn btn-danger btn-sm" href="delete_venda.php?id=<?php echo $f['idVenda']?>">
                               <i class="fas fa-trash">
                               </i>
-                              Deletar
+                              Delete
                           </a>
                       </td>
                   </tr>
